@@ -1,3 +1,5 @@
+To run in CLoud 9 - SHELL: gatsby develop -p $PORT -H $IP
+
  # Hello Friend
 
 ![Hello Friend](https://github.com/panr/hugo-theme-hello-friend/blob/master/images/screenshot.png?raw=true)

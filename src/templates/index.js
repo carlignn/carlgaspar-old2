@@ -8,9 +8,9 @@ import Navigation from '../components/navigation'
 
 const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
   const {
-    allMarkdownRemark: { edges: posts },
+    allContentfulBlog: { edges: posts },
   } = data
-
+  
   return (
     <>
       <SEO />
@@ -18,28 +18,26 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
         {posts.map(({ node }) => {
           const {
             id,
-            excerpt: autoExcerpt,
-            frontmatter: {
-              title,
-              date,
-              path,
-              author,
-              coverImage,
-              excerpt,
-              tags,
-            },
+            subtitle,
+            title,
+            lastUpdated,
+            slug,
+            image,
+            excerpt,
+            tags,
           } = node
 
           return (
             <Post
               key={id}
               title={title}
-              date={date}
-              path={path}
-              author={author}
-              coverImage={coverImage}
+              date={lastUpdated}
+              path={slug}
+              author={title}
+              coverImage={image}
               tags={tags}
-              excerpt={excerpt || autoExcerpt}
+              excerpt={subtitle}
+              
             />
           )
         })}
@@ -65,29 +63,22 @@ Index.propTypes = {
 
 export const postsQuery = graphql`
   query($limit: Int!, $skip: Int!) {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//posts//" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+    allContentfulBlog (
+      sort: { fields: [lastUpdated], order: DESC }
       limit: $limit
       skip: $skip
     ) {
       edges {
         node {
           id
-          excerpt
-          frontmatter {
-            title
-            date
-            path
-            author
-            excerpt
-            tags
-            coverImage {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+          subtitle
+          title
+          lastUpdated(formatString: "MMMM DD, YYYY")
+          slug
+          tags
+          image {
+            fluid(maxWidth: 800) {
+              ...GatsbyContentfulFluid
             }
           }
         }

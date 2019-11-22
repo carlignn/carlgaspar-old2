@@ -8,24 +8,20 @@ import Post from '../components/post'
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const {
-    frontmatter: { title, date, path, author, coverImage, excerpt, tags },
-    excerpt: autoExcerpt,
-    id,
-    html,
-  } = data.markdownRemark
+    id, title, lastUpdated, slug, image, subtitle, tags, json
+  } = data.contentfulBlog
   const { next, previous } = pageContext
 
   return (
     <Layout>
-      <SEO title={title} description={excerpt || autoExcerpt} />
+      <SEO title={title} description={subtitle} />
       <Post
         key={id}
         title={title}
-        date={date}
-        path={path}
-        author={author}
-        coverImage={coverImage}
-        html={html}
+        date={lastUpdated}
+        path={slug}
+        author={title}
+        coverImage={image}
         tags={tags}
         previousPost={previous}
         nextPost={next}
@@ -45,26 +41,23 @@ BlogPostTemplate.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query($path: String) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      frontmatter {
-        title
-        date
-        path
-        author
-        excerpt
-        tags
-        coverImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+  query($slug: String!) {
+    contentfulBlog(slug: { eq: $slug }) {
+      id
+      title
+      subtitle
+      tags
+      timeToRead
+      published(formatString: "MMMM DD, YYYY")
+      lastUpdated(formatString: "MMMM DD, YYYY")
+      image {
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid
         }
       }
-      id
-      html
-      excerpt
+      content {
+        json
+      }
     }
   }
 `

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Navigation from './navigation'
-import { toKebabCase } from '../helpers'
+import { toKebabCase, toCamelCase } from '../helpers'
 
 import style from '../styles/post.module.css'
 
@@ -19,11 +19,11 @@ const Post = ({
   previousPost,
   nextPost,
 }) => {
-  const previousPath = previousPost && previousPost.frontmatter.path
-  const previousLabel = previousPost && previousPost.frontmatter.title
-  const nextPath = nextPost && nextPost.frontmatter.path
-  const nextLabel = nextPost && nextPost.frontmatter.title
-
+  const previousPath = previousPost && previousPost.slug
+  const previousLabel = previousPost && previousPost.title
+  const nextPath = nextPost && nextPost.slug
+  const nextLabel = nextPost && nextPost.title
+  
   return (
     <div className={style.post}>
       <div className={style.postContent}>
@@ -35,20 +35,20 @@ const Post = ({
           {tags ? (
             <div className={style.tags}>
               {tags.map(tag => (
-                <Link to={`/tag/${toKebabCase(tag)}/`} key={toKebabCase(tag)}>
-                  <span className={style.tag}>#{tag}</span>
+                <Link to={`/tags/${toKebabCase(tag)}/`} key={toKebabCase(tag)}>
+                  <span className={style.tag}>#{toCamelCase(tag)}</span>
                 </Link>
               ))}
             </div>
           ) : null}
         </div>
 
-        {/*coverImage && (
+        {coverImage && (
           <Img
-            fluid={coverImage.childImageSharp.fluid}
+            fluid={coverImage.fluid}
             className={style.coverImage}
           />
-        )*/}
+        )}
 
         {excerpt ? (
           <>

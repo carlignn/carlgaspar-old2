@@ -22,7 +22,8 @@ module.exports = {
     },
     logoText: 'carl gaspar',
     defaultTheme: 'dark',
-    postsPerPage: 5,
+    postsPerFirstPage: 5,
+    postsPerPage: 10,
     showMenuItems: 2,
     menuMoreText: 'Show more',
     mainMenu: [

@@ -13,9 +13,9 @@ const Tags = ({
   pageContext: { nextPagePath, previousPagePath, tag },
 }) => {
   const {
-    allMarkdownRemark: { edges: posts },
+    allContentfulBlog: { edges: posts },
   } = data
-
+  
   return (
     <>
       <SEO />
@@ -27,28 +27,25 @@ const Tags = ({
         {posts.map(({ node }) => {
           const {
             id,
-            excerpt: autoExcerpt,
-            frontmatter: {
-              title,
-              date,
-              path,
-              author,
-              coverImage,
-              excerpt,
-              tags,
-            },
+            subtitle,
+            title,
+            lastUpdated,
+            slug,
+            image,
+            excerpt,
+            tags,
           } = node
 
           return (
             <Post
               key={id}
               title={title}
-              date={date}
-              path={path}
-              author={author}
+              date={lastUpdated}
+              path={slug}
+              author={title}
               tags={tags}
-              coverImage={coverImage}
-              excerpt={excerpt || autoExcerpt}
+              coverImage={image}
+              excerpt={subtitle}
             />
           )
         })}
@@ -73,30 +70,24 @@ Tags.propTypes = {
 }
 
 export const postsQuery = graphql`
-  query($limit: Int!, $skip: Int!, $tag: String!) {
-    allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: [$tag] } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+  query ($limit: Int!, $skip: Int!, $tag: String!) {
+    allContentfulBlog (
+      filter: {tags: {in: [$tag]}}
+      sort: { fields: [lastUpdated], order: DESC }
       limit: $limit
       skip: $skip
     ) {
       edges {
         node {
           id
-          excerpt
-          frontmatter {
-            title
-            date
-            path
-            author
-            excerpt
-            tags
-            coverImage {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+          subtitle
+          title
+          lastUpdated(formatString: "MMMM DD, YYYY")
+          slug
+          tags
+          image {
+            fluid(maxWidth: 800) {
+              ...GatsbyContentfulFluid
             }
           }
         }

@@ -16,23 +16,24 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
+      allContentfulBlog (
+        sort: { fields: [lastUpdated], order: DESC }
         limit: 1000
       ) {
         edges {
           node {
-            frontmatter {
-              path
-              title
-              tags
-            }
-            fileAbsolutePath
+            slug
+            title
+            tags
           }
+        }
+        group(field: tags, limit: 1000) {
+          fieldValue
         }
       }
       site {
         siteMetadata {
+          postsPerFirstPage
           postsPerPage
         }
       }
@@ -43,83 +44,71 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
     }
 
     const {
-      allMarkdownRemark: { edges: markdownPages },
+      allContentfulBlog: { edges: markdownPages, group: markdownTags },
       site: { siteMetadata },
     } = result.data
-
-    const sortedPages = markdownPages.sort((pageA, pageB) => {
+    
+    /*const sortedPages = markdownPages.sort((pageA, pageB) => {
       const typeA = getType(pageA.node)
       const typeB = getType(pageB.node)
 
       return (typeA > typeB) - (typeA < typeB)
-    })
+    })*/
 
-    const posts = allNodes.filter(
+    /*const posts = allNodes.filter(
       ({ internal, fileAbsolutePath }) =>
         internal.type === 'MarkdownRemark' &&
         fileAbsolutePath.indexOf('/posts/') !== -1,
-    )
+    )*/
 
     // Create posts index with pagination
     paginate({
       createPage,
-      items: posts,
+      items: markdownPages,
       component: indexTemplate,
+      itemsPerFirstPage: siteMetadata.postsPerFirstPage,
       itemsPerPage: siteMetadata.postsPerPage,
       pathPrefix: '/',
     })
 
     // Create each markdown page and post
-    forEach(({ node }, index) => {
-      const previous = index === 0 ? null : sortedPages[index - 1].node
-      const next =
-        index === sortedPages.length - 1 ? null : sortedPages[index + 1].node
-      const isNextSameType = getType(node) === (next && getType(next))
-      const isPreviousSameType =
-        getType(node) === (previous && getType(previous))
+    markdownPages.forEach((post, index) => {
+      const previous = index === markdownPages.length - 1 ? null : markdownPages[index + 1].node
+      const next = index === 0 ? null : markdownPages[index - 1].node
 
       createPage({
-        path: node.frontmatter.path,
+        path: post.node.slug,
         component: pageTemplate,
         context: {
-          type: getType(node),
-          next: isNextSameType ? next : null,
-          previous: isPreviousSameType ? previous : null,
+          slug: post.node.slug,
+          previous,
+          next,
         },
       })
-    }, sortedPages)
+    })
 
     // Create tag pages
-    const tags = filter(
+    /*const tags = filter(
       tag => not(isNil(tag)),
-      uniq(flatMap(post => post.frontmatter.tags, posts)),
-    )
+      uniq(flatMap(post => post.tags.title, markdownPages)),
+    )*/
 
-    forEach(tag => {
-      const postsWithTag = posts.filter(
-        post =>
-          post.frontmatter.tags && post.frontmatter.tags.indexOf(tag) !== -1,
-      )
-
+    markdownTags.forEach(tag => {
       paginate({
         createPage,
-        items: postsWithTag,
+        items: markdownTags,
         component: tagsTemplate,
+        itemsPerFirstPage: 1,
         itemsPerPage: siteMetadata.postsPerPage,
-        pathPrefix: `/tag/${toKebabCase(tag)}`,
+        pathPrefix: `/tags/${tag.fieldValue}/`,
         context: {
-          tag,
+          tag: tag.fieldValue
         },
       })
-    }, tags)
-
-    return {
-      sortedPages,
-      tags,
-    }
-  })
+    })
+  }) //pagination doesn't work here
 }
-
+/*
 exports.sourceNodes = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
@@ -139,3 +128,4 @@ exports.sourceNodes = ({ actions }) => {
   `
   createTypes(typeDefs)
 }
+*/
