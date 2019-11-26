@@ -12,6 +12,7 @@ import style from '../styles/post.module.css'
 const Post = ({
   title,
   subtitle,
+  category,
   slug,
   image,
   date,
@@ -34,7 +35,7 @@ const Post = ({
         </h1>
         <div className={style.meta}>
           {/*{date} {author && <>— Written by {author}</>}*/}
-          <>Blog — </>{date}
+          {category + " — " + date}
           {tags ? (
             <div className={style.tags}>
               {tags.map(tag => (

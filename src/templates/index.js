@@ -9,7 +9,7 @@ import Navigation from '../components/navigation'
 
 const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
   const {
-    allContentfulBlog: { edges: posts },
+    allContentfulPost: { edges: posts },
   } = data
   
   return (
@@ -21,7 +21,8 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
             id,
             title,
             subtitle,
-            lastUpdated,
+            category,
+            published,
             slug,
             image,
             tags
@@ -32,7 +33,8 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
               key={id}
               title={title}
               subtitle={subtitle}
-              date={lastUpdated}
+              category={category}
+              date={published}
               slug={slug}
               image={image}
               tags={tags}
@@ -62,8 +64,8 @@ Index.propTypes = {
 
 export const postsQuery = graphql`
   query($limit: Int!, $skip: Int!) {
-    allContentfulBlog (
-      sort: { fields: [lastUpdated], order: DESC }
+    allContentfulPost (
+      sort: { fields: [published], order: DESC }
       limit: $limit
       skip: $skip
     ) {
@@ -72,14 +74,15 @@ export const postsQuery = graphql`
           id
           title
           subtitle
+          category
           slug
-          lastUpdated(formatString: "MMMM DD, YYYY")
-          tags
+          published(formatString: "MMMM DD, YYYY")
           image {
             fluid(maxWidth: 800) {
               ...GatsbyContentfulFluid
             }
           }
+          tags
         }
       }
     }

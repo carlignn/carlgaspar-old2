@@ -22,7 +22,7 @@ module.exports = {
     },
     logoText: 'carl gaspar',
     defaultTheme: 'dark',
-    postsPerFirstPage: 1,
+    postsPerFirstPage: 10,
     postsPerPage: 15,
     showMenuItems: 2,
     menuMoreText: 'Show more',

@@ -16,8 +16,8 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
 
   return graphql(`
     {
-      allContentfulBlog (
-        sort: { fields: [lastUpdated], order: DESC }
+      allContentfulPost (
+        sort: { fields: [published], order: DESC }
         limit: 1000
       ) {
         edges {
@@ -45,7 +45,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
     }
 
     const {
-      allContentfulBlog: { edges: markdownPages, group: markdownTags },
+      allContentfulPost: { edges: markdownPages, group: markdownTags },
       site: { siteMetadata },
     } = result.data
     

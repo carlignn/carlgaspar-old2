@@ -13,7 +13,7 @@ const Tags = ({
   pageContext: { nextPagePath, previousPagePath, tag },
 }) => {
   const {
-    allContentfulBlog: { edges: posts },
+    allContentfulPost: { edges: posts },
   } = data
   
   return (
@@ -29,8 +29,9 @@ const Tags = ({
             id,
             title,
             subtitle,
+            category,
             slug,
-            lastUpdated,
+            published,
             image,
             tags,
             excerpt
@@ -41,8 +42,9 @@ const Tags = ({
               key={id}
               title={title}
               subtitle={subtitle}
+              category={category}
               slug={slug}
-              date={lastUpdated}
+              date={published}
               image={image}
               tags={tags}
               author={title}
@@ -71,9 +73,9 @@ Tags.propTypes = {
 
 export const postsQuery = graphql`
   query ($limit: Int!, $skip: Int!, $tag: String!) {
-    allContentfulBlog (
+    allContentfulPost (
       filter: {tags: {in: [$tag]}}
-      sort: { fields: [lastUpdated], order: DESC }
+      sort: { fields: [published], order: DESC }
       limit: $limit
       skip: $skip
     ) {
@@ -82,8 +84,9 @@ export const postsQuery = graphql`
           id
           title
           subtitle
+          category
           slug
-          lastUpdated(formatString: "MMMM DD, YYYY")
+          published(formatString: "MMMM DD, YYYY")
           image {
             fluid(maxWidth: 800) {
               ...GatsbyContentfulFluid

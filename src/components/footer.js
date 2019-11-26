@@ -15,13 +15,40 @@ const Footer = ({ copyrights }) => (
       />
     ) : (
       <>
-        <Icon style={{ cursor: 'pointer' }} size={24} d={toggleIcon} isFooter={true} />
-        <span className="footerCopyrights">
-          © 2019 Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <span>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+            <Icon style={{ margin: `10px 10px` }} size={24} d={toggleIcon} isFooter={true} />
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <Icon style={{ margin: `10px 10px` }} size={24} d={toggleIcon} isFooter={true} />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <Icon style={{ margin: `10px 10px` }} size={24} d={toggleIcon} isFooter={true} />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <Icon style={{ margin: `10px 10px` }} size={24} d={toggleIcon} isFooter={true} />
+          </a>
+          <a href="https://about.me" target="_blank" rel="noopener noreferrer">
+            <Icon style={{ margin: `10px 10px` }} size={24} d={toggleIcon} isFooter={true} />
+          </a>
+          <a href="https://reddit.com" target="_blank" rel="noopener noreferrer">
+            <Icon style={{ margin: `10px 10px` }} size={24} d={toggleIcon} isFooter={true} />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <Icon style={{ margin: `10px 10px` }} size={24} d={toggleIcon} isFooter={true} />
+          </a>
+          <a href="https://hackernews.com" target="_blank" rel="noopener noreferrer">
+            <Icon style={{ margin: `10px 10px` }} size={24} d={toggleIcon} isFooter={true} />
+          </a>
         </span>
-        <span className="footerCopyrights">
-          Starter created by <a href="https://radoslawkoziel.pl">panr</a>
-        </span>
+        <div>
+          <span className="footerCopyrights">
+            © 2019 Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </span>
+          {/*<span className="footerCopyrights">
+            Website created by <a href="https://radoslawkoziel.pl">carl gaspar</a>
+          </span>*/}
+        </div>
       </>
     )}
   </footer>
