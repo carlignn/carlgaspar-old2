@@ -29,6 +29,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         }
         group(field: tags, limit: 1000) {
           fieldValue
+          totalCount
         }
       }
       site {
@@ -60,6 +61,8 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         internal.type === 'MarkdownRemark' &&
         fileAbsolutePath.indexOf('/posts/') !== -1,
     )*/
+    
+    
 
     // Create posts index with pagination
     paginate({
@@ -92,21 +95,21 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
       tag => not(isNil(tag)),
       uniq(flatMap(post => post.tags.title, markdownPages)),
     )*/
-
+  
     markdownTags.forEach(tag => {
       paginate({
         createPage,
         items: markdownTags,
         component: tagsTemplate,
-        itemsPerFirstPage: 1,
-        itemsPerPage: siteMetadata.postsPerPage,
-        pathPrefix: `/tags/${tag.fieldValue}/`,
+        itemsPerFirstPage: 100,
+        itemsPerPage: 100,
+        pathPrefix: `/tag/${tag.fieldValue}`,
         context: {
           tag: tag.fieldValue
         },
       })
     })
-  }) //pagination doesn't work here
+  })
 }
 /*
 exports.sourceNodes = ({ actions }) => {

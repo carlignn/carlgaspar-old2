@@ -8,7 +8,7 @@ import Post from '../components/post'
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const {
-    id, title, lastUpdated, slug, image, subtitle, tags, json
+    id, title, subtitle, slug, lastUpdated, tags, image, content
   } = data.contentfulBlog
   const { next, previous } = pageContext
 
@@ -18,11 +18,12 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       <Post
         key={id}
         title={title}
+        slug={slug}
         date={lastUpdated}
-        path={slug}
-        author={title}
-        coverImage={image}
+        image={image}
+        content={content}
         tags={tags}
+        author={title}
         previousPost={previous}
         nextPost={next}
       />
@@ -46,9 +47,6 @@ export const pageQuery = graphql`
       id
       title
       subtitle
-      tags
-      timeToRead
-      published(formatString: "MMMM DD, YYYY")
       lastUpdated(formatString: "MMMM DD, YYYY")
       image {
         fluid(maxWidth: 1800) {
@@ -58,6 +56,7 @@ export const pageQuery = graphql`
       content {
         json
       }
+      tags
     }
   }
 `

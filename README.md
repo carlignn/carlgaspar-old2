@@ -1,5 +1,29 @@
 To run in CLoud 9 - SHELL: gatsby develop -p $PORT -H $IP
 
+TODO:
+  <Done!> ~ Put the Content on the Post.
+  <Done!> ~ Default image size 1200x660
+  <> ~ Published and LastUpdated
+  <> ~ Header
+  <Ongoing> ~ Footer
+              - Create the logos, get the path from svg
+              - Add link
+              ~ Process of creating the path. inkscape > create shapes on 1 layer > select all shapes > path > differentiate
+              ~ Added condition if footer then scale to 2.5 because SVG is too small. Try to find a fix for this
+  <> ~ Add a category: Advertisement, Blog, Article? Opinion, News?
+              Change the Content Model name from Blog to Post
+              Blog — November 25, 2019
+              November 25, 2019 — 3 minute read (Doesn't look good)
+  <> ~ 
+
+BUG:
+  <Done!> ~ Pagination on Tags not working. ~ Removed / on end
+  <Done!> ~ Creating next page for tag when it is only sufficient for page 1 ~ Don't make pages 1
+  <Done!> ~ Tags on Page is Camel Case, should be Pascal Case ~ Tags are as it is
+  <Done?> ~ Tags Pagination not working together - Because #Philippines has 4 pages, causing everyone to imitate
+              Removed pagination for now.
+
+
  # Hello Friend
 
 ![Hello Friend](https://github.com/panr/hugo-theme-hello-friend/blob/master/images/screenshot.png?raw=true)

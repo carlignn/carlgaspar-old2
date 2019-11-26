@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
+
 import Navigation from './navigation'
 import { toKebabCase, toCamelCase } from '../helpers'
 
@@ -9,13 +11,13 @@ import style from '../styles/post.module.css'
 
 const Post = ({
   title,
+  subtitle,
+  slug,
+  image,
   date,
-  path,
-  coverImage,
-  author,
-  excerpt,
+  content,
   tags,
-  html,
+  author,
   previousPost,
   nextPost,
 }) => {
@@ -28,38 +30,43 @@ const Post = ({
     <div className={style.post}>
       <div className={style.postContent}>
         <h1 className={style.title}>
-          {excerpt ? <Link to={path}>{title}</Link> : title}
+          {subtitle ? <Link to={slug}>{title}</Link> : title}
         </h1>
         <div className={style.meta}>
-          {date} {author && <>— Written by {author}</>}
+          {/*{date} {author && <>— Written by {author}</>}*/}
+          <>Blog — </>{date}
           {tags ? (
             <div className={style.tags}>
               {tags.map(tag => (
-                <Link to={`/tags/${toKebabCase(tag)}/`} key={toKebabCase(tag)}>
-                  <span className={style.tag}>#{toCamelCase(tag)}</span>
+                <Link to={`/tag/${tag}/`} key={tag}>
+                  <span className={style.tag}>#{tag}</span>
                 </Link>
               ))}
             </div>
           ) : null}
         </div>
 
-        {coverImage && (
+        {image && (
           <Img
-            fluid={coverImage.fluid}
-            className={style.coverImage}
+            fluid={image.fluid}
+            className={style.image}
           />
         )}
 
-        {excerpt ? (
+        {subtitle ? (
           <>
-            <p>{excerpt}</p>
-            <Link to={path} className={style.readMore}>
+            <p>{subtitle}</p>
+            <Link to={slug} className={style.readMore}>
               Read more →
             </Link>
           </>
         ) : (
           <>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: documentToHtmlString(content.json)
+              }}
+            />
             <Navigation
               previousPath={previousPath}
               previousLabel={previousLabel}
@@ -76,10 +83,10 @@ const Post = ({
 Post.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
-  path: PropTypes.string,
-  coverImage: PropTypes.object,
+  slug: PropTypes.string,
+  image: PropTypes.object,
   author: PropTypes.string,
-  excerpt: PropTypes.string,
+  subtitle: PropTypes.string,
   html: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   previousPost: PropTypes.object,

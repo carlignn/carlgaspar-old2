@@ -27,25 +27,25 @@ const Tags = ({
         {posts.map(({ node }) => {
           const {
             id,
-            subtitle,
             title,
-            lastUpdated,
+            subtitle,
             slug,
+            lastUpdated,
             image,
-            excerpt,
             tags,
+            excerpt
           } = node
 
           return (
             <Post
               key={id}
               title={title}
+              subtitle={subtitle}
+              slug={slug}
               date={lastUpdated}
-              path={slug}
-              author={title}
+              image={image}
               tags={tags}
-              coverImage={image}
-              excerpt={subtitle}
+              author={title}
             />
           )
         })}
@@ -80,16 +80,16 @@ export const postsQuery = graphql`
       edges {
         node {
           id
-          subtitle
           title
-          lastUpdated(formatString: "MMMM DD, YYYY")
+          subtitle
           slug
-          tags
+          lastUpdated(formatString: "MMMM DD, YYYY")
           image {
             fluid(maxWidth: 800) {
               ...GatsbyContentfulFluid
             }
           }
+          tags
         }
       }
     }

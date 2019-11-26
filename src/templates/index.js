@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Post from '../components/post'
@@ -18,26 +19,24 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
         {posts.map(({ node }) => {
           const {
             id,
-            subtitle,
             title,
+            subtitle,
             lastUpdated,
             slug,
             image,
-            excerpt,
-            tags,
+            tags
           } = node
 
           return (
             <Post
               key={id}
               title={title}
+              subtitle={subtitle}
               date={lastUpdated}
-              path={slug}
-              author={title}
-              coverImage={image}
+              slug={slug}
+              image={image}
               tags={tags}
-              excerpt={subtitle}
-              
+              author={title}
             />
           )
         })}
@@ -71,10 +70,10 @@ export const postsQuery = graphql`
       edges {
         node {
           id
-          subtitle
           title
-          lastUpdated(formatString: "MMMM DD, YYYY")
+          subtitle
           slug
+          lastUpdated(formatString: "MMMM DD, YYYY")
           tags
           image {
             fluid(maxWidth: 800) {

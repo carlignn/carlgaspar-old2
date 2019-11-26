@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import style from '../styles/icon.module.css'
 
 const Icon = props => {
-  const { d, size = '1em', label, style: styles } = props
+  const { d, size = '1em', label, style: styles, isFooter } = props
 
   return (
     <span className={style.root} style={styles} role="figure">
@@ -15,7 +15,7 @@ const Icon = props => {
         viewBox="0 0 48 48"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d={d} className={style.icon} />
+        <path d={d} className={style.icon} style={ isFooter ? { transform: `scale(2.5)` } : { transform: `scale(1)` } }/>
       </svg>
       {label && <span className={style.label}>{label}</span>}
     </span>
