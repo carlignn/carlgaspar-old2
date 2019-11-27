@@ -8,7 +8,7 @@ const Icon = props => {
   
   const newStyle = {
     transform: {
-      transform: `scale(2.7)`
+      transform: `scale(2)`
     }
   }
   

@@ -21,7 +21,8 @@ TODO:
   <> ~ Portfolio
   <> ~ Create menu for Advertisement, Blog
               Create URL for Main Menu /, Blog /blog, Advertisement /advertisement
-  <> ~ 
+  <> ~ How do I create the portfolio page in my old Blog, so i know how would i meake here in new
+  <> ~ .env variables for who needed it
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
