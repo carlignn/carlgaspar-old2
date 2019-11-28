@@ -8,56 +8,28 @@ import Navigation from '../components/navigation'
 
 import '../styles/layout.css'
 
-const Tags = ({
-  data,
-  pageContext: { nextPagePath, previousPagePath, tag },
-}) => {
+const Tags = ({ data }) => {
   const {
-    allContentfulPost: { edges: posts },
+    allContentfulPost: { group: tags },
   } = data
   
   return (
     <>
       <SEO />
       <Layout>
-        <div className="infoBanner">
-          Posts with tag: <span>#{tag}</span>
-        </div>
+        <div className="infoBanner">All Tags</div>
 
-        {posts.map(({ node }) => {
+        {tags.map(tag => {
           const {
-            id,
-            title,
-            subtitle,
-            category,
-            slug,
-            published,
-            image,
-            tags,
-            excerpt
-          } = node
+            fieldValue
+          } = tag
 
           return (
-            <Post
-              key={id}
-              title={title}
-              subtitle={subtitle}
-              category={category}
-              slug={slug}
-              date={published}
-              image={image}
-              tags={tags}
-              author={title}
-            />
+            <div>
+              {fieldValue}
+            </div>
           )
         })}
-
-        <Navigation
-          previousPath={previousPagePath}
-          previousLabel="Newer posts"
-          nextPath={nextPagePath}
-          nextLabel="Older posts"
-        />
       </Layout>
     </>
   )
@@ -65,35 +37,13 @@ const Tags = ({
 
 Tags.propTypes = {
   data: PropTypes.object.isRequired,
-  pageContext: PropTypes.shape({
-    nextPagePath: PropTypes.string,
-    previousPagePath: PropTypes.string,
-  }),
 }
 
 export const postsQuery = graphql`
-  query ($limit: Int!, $skip: Int!, $tag: String!) {
-    allContentfulPost (
-      filter: {tags: {in: [$tag]}}
-      sort: { fields: [published], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          id
-          title
-          subtitle
-          category
-          slug
-          published(formatString: "MMMM DD, YYYY")
-          image {
-            fluid(maxWidth: 800) {
-              ...GatsbyContentfulFluid
-            }
-          }
-          tags
-        }
+  query {
+    allContentfulPost {
+      group (field: tags, limit: 1000) {
+        fieldValue
       }
     }
   }

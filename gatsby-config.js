@@ -25,19 +25,35 @@ module.exports = {
     postsPerFirstPage: 10,
     postsPerPage: 15,
     showMenuItems: 2,
-    menuMoreText: 'Show more',
+    menuMoreText: 'More',
     mainMenu: [
       {
-        title: 'About',
-        path: '/about',
+        title: 'Blog',
+        path: '/blog',
       },
       {
-        title: 'Showcase',
-        path: '/showcase',
+        title: 'Portfolio',
+        path: '/portfolio',
       },
       {
-        title: 'Example',
-        path: '/example',
+        title: 'Tags',
+        path: '/tags',
+      },
+      {
+        title: 'Advertisement',
+        path: '/advertisement',
+      },
+      {
+        title: 'Article',
+        path: '/article',
+      },
+      {
+        title: 'Opinion',
+        path: '/opinion',
+      },
+      {
+        title: 'News',
+        path: '/news',
       },
     ],
   },

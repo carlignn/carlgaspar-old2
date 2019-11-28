@@ -22,6 +22,7 @@ const Post = ({
   previousPost,
   nextPost,
 }) => {
+  
   const previousPath = previousPost && previousPost.slug
   const previousLabel = previousPost && previousPost.title
   const nextPath = nextPost && nextPost.slug
@@ -31,7 +32,7 @@ const Post = ({
     <div className={style.post}>
       <div className={style.postContent}>
         <h1 className={style.title}>
-          {subtitle ? <Link to={slug}>{title}</Link> : title}
+          {subtitle ? <Link to={`/${slug}`}>{title}</Link> : title}
         </h1>
         <div className={style.meta}>
           {/*{date} {author && <>— Written by {author}</>}*/}
@@ -57,7 +58,7 @@ const Post = ({
         {subtitle ? (
           <>
             <p>{subtitle}</p>
-            <Link to={slug} className={style.readMore}>
+            <Link to={`/${slug}`} className={style.readMore}>
               Read more →
             </Link>
           </>

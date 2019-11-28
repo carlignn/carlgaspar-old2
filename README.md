@@ -4,33 +4,43 @@ TODO:
   <Done!> ~ Put the Content on the Post.
   <Done!> ~ Default image size 1200x660
   <Done!> ~ Published and LastUpdated ~ Published, no lastUpdated
-  <> ~ Header
-  <WIP> ~ Footer
+  <Done!> ~ Footer
               - Create the logos, get the path from svg
               - Add link
               - Youtube, Facebook, Twitter, Instagram, 
               ~ Process of creating the path. inkscape > create shapes on 1 layer > select all shapes > path > differentiate
               ~ Added condition if footer then scale to 2.8 because SVG is too small. Try to find a fix for this
+              ~ MVP Logos has been created
   <Done!> ~ Add a category: Advertisement, Blog, Article? Opinion, News?
               Change the Content Model name from Blog to Post
               Blog — November 25, 2019
               November 25, 2019 — 3 minute read (Doesn't look good)
               ~ Added Category column
+  <Done!> ~ List of all Tags
+  <> ~ /tags Design
+              - tagCloud? or what?
+  <WIP!> ~ Header
   <> ~ There is a code on showcase.md
   <> ~ Check how SEO works
   <> ~ Portfolio
-  <> ~ Create menu for Advertisement, Blog
+  <WIP> ~ Create menu for Advertisement, Blog
               Create URL for Main Menu /, Blog /blog, Advertisement /advertisement
-  <> ~ How do I create the portfolio page in my old Blog, so i know how would i meake here in new
-  <> ~ .env variables for who needed it
+              ~ Menus created
+  <Done!> ~ How do I create the portfolio page in my old Blog, so i know how would i meake here in new
+              ~ Created by adding it on /pages
+  <> ~ .env variables for the pages who needed it
+  <> ~ Agolia?
+  <> ~ Store?
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
   <Done!> ~ Creating next page for tag when it is only sufficient for page 1 ~ Don't make pages 1
   <Done!> ~ Tags on Page is Camel Case, should be Pascal Case ~ Tags are as it is
-  <Passed?> ~ Tags Pagination not working together - Because #Philippines has 4 pages, causing everyone to imitate
-              Removed pagination for now.
-
+  <Skipped?> ~ Tags Pagination not working together - Because #Philippines has 4 pages, causing everyone to imitate, Same with Category
+              ~ Stay as it is. Will create an issue on github
+  <Done!> ~ Blog - All Blog, should be All Blogs, Ads, etc.
+  <Done!> ~ External links error
+            ~ Lacking /
 
  # Hello Friend
 

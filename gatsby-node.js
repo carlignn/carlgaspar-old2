@@ -8,6 +8,7 @@ const getType = node => node.fileAbsolutePath.match(pageTypeRegex)[1]
 
 const pageTemplate = path.resolve(`./src/templates/page.js`)
 const indexTemplate = path.resolve(`./src/templates/index.js`)
+const tagTemplate = path.resolve(`./src/templates/tag.js`)
 const tagsTemplate = path.resolve(`./src/templates/tags.js`)
 
 exports.createPages = ({ actions, graphql, getNodes }) => {
@@ -22,14 +23,16 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
       ) {
         edges {
           node {
-            slug
             title
+            slug
             tags
           }
         }
-        group(field: tags, limit: 1000) {
+        tags: group(field: tags) {
           fieldValue
-          totalCount
+        }
+        category: group(field: category, limit: 1000) {
+          fieldValue
         }
       }
       site {
@@ -45,24 +48,14 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
     }
 
     const {
-      allContentfulPost: { edges: markdownPages, group: markdownTags },
-      site: { siteMetadata },
+      allContentfulPost: {
+        edges: markdownPages,
+        tags: markdownTags,
+        category: markdownCategory
+      },
+      site: { siteMetadata }
     } = result.data
-    
-    /*const sortedPages = markdownPages.sort((pageA, pageB) => {
-      const typeA = getType(pageA.node)
-      const typeB = getType(pageB.node)
 
-      return (typeA > typeB) - (typeA < typeB)
-    })*/
-
-    /*const posts = allNodes.filter(
-      ({ internal, fileAbsolutePath }) =>
-        internal.type === 'MarkdownRemark' &&
-        fileAbsolutePath.indexOf('/posts/') !== -1,
-    )*/
-    
-    
 
     // Create posts index with pagination
     paginate({
@@ -74,7 +67,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
       pathPrefix: '/',
     })
 
-    // Create each markdown page and post
+    // Create each post with pagination (not awesome-paginate)
     markdownPages.forEach((post, index) => {
       const previous = index === markdownPages.length - 1 ? null : markdownPages[index + 1].node
       const next = index === 0 ? null : markdownPages[index - 1].node
@@ -89,24 +82,42 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         },
       })
     })
-
-    // Create tag pages
-    /*const tags = filter(
-      tag => not(isNil(tag)),
-      uniq(flatMap(post => post.tags.title, markdownPages)),
-    )*/
-  
+    
+    
+    // Create tags index
+    createPage({
+      component: tagsTemplate,
+      path: '/tags',
+    })
+    
+    // Create each tag with pagination
     markdownTags.forEach(tag => {
       paginate({
         createPage,
         items: markdownTags,
-        component: tagsTemplate,
-        itemsPerFirstPage: 100,
-        itemsPerPage: 100,
+        component: tagTemplate,
+        itemsPerFirstPage: siteMetadata.postsPerFirstPage,
+        itemsPerPage: siteMetadata.postsPerPage,
         pathPrefix: `/tag/${tag.fieldValue}`,
         context: {
           tag: tag.fieldValue
         },
+      })
+    })
+    
+    
+    // Create each category index with pagination
+    markdownCategory.forEach(category => {
+      paginate({
+        createPage,
+        items: markdownCategory,
+        component: indexTemplate,
+        itemsPerFirstPage: siteMetadata.postsPerFirstPage,
+        itemsPerPage: siteMetadata.postsPerPage,
+        pathPrefix: `/${category.fieldValue.toLowerCase()}`,
+        context: {
+          category: category.fieldValue
+        }
       })
     })
   })

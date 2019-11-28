@@ -1,13 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Post from '../components/post'
 import Navigation from '../components/navigation'
 
-const Index = ({ data, pageContext: { nextPagePath, previousPagePath, category } }) => {
+import '../styles/layout.css'
+
+const Tag = ({
+  data,
+  pageContext: { nextPagePath, previousPagePath, numberOfPages, tag },
+}) => {
   const {
     allContentfulPost: { edges: posts },
   } = data
@@ -16,24 +20,21 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath, category }
     <>
       <SEO />
       <Layout>
-        {
-          category && (
-            <div className="infoBanner">
-              All {category[category.length - 1] !== "s" ? category + "s" : category}
-            </div>
-          )
-        }
-        
+        <div className="infoBanner">
+          Posts with tag: <span>#{tag}</span>
+        </div>
+
         {posts.map(({ node }) => {
           const {
             id,
             title,
             subtitle,
             category,
-            published,
             slug,
+            published,
             image,
-            tags
+            tags,
+            excerpt
           } = node
 
           return (
@@ -42,8 +43,8 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath, category }
               title={title}
               subtitle={subtitle}
               category={category}
-              date={published}
               slug={slug}
+              date={published}
               image={image}
               tags={tags}
               author={title}
@@ -62,7 +63,7 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath, category }
   )
 }
 
-Index.propTypes = {
+Tag.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.shape({
     nextPagePath: PropTypes.string,
@@ -71,9 +72,9 @@ Index.propTypes = {
 }
 
 export const postsQuery = graphql`
-  query($limit: Int!, $skip: Int!, $category: String) {
+  query ($limit: Int!, $skip: Int!, $tag: String!) {
     allContentfulPost (
-      filter: { category: {eq: $category} }
+      filter: {tags: {in: [$tag]}}
       sort: { fields: [published], order: DESC }
       limit: $limit
       skip: $skip
@@ -98,4 +99,4 @@ export const postsQuery = graphql`
   }
 `
 
-export default Index
+export default Tag

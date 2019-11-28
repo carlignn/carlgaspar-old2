@@ -23,7 +23,7 @@ const SubMenu = ({ mainMenu, mainMenuItems, onToggleSubMenu }) => {
 
   const items = menu.map((menuItem, index) => (
     <li key={index}>
-      <Link to={menuItem.path}>{menuItem.title}</Link>
+      <Link to={menuItem.path} style={{ width: '100%' }}>{menuItem.title}</Link>
     </li>
   ))
 
