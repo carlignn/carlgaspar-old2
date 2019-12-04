@@ -22,9 +22,9 @@ TODO:
               ~ Menus created
   <Done!> ~ How do I create the portfolio page in my old Blog, so i know how would i meake here in new
               ~ Created by adding it on /pages
+  <Done!> ~ .env variables for the pages who needed it
+  <Done!> ~ Fix the error on Store and provide the env variables on netlify
   <WIP!> ~ Header
-  <> ~ /tags Design
-              - tagCloud? or what?
   <WIP> ~ Algolia design of results is an eye sore
               - Results are placed on UL
               ~ Highlight color is already fine
@@ -32,13 +32,14 @@ TODO:
               - Design
               - Error when cannot connect to the server
               - 1:04:29
+  <> ~ /tags Design
+              - tagCloud? or what?
   <> ~ Check how SEO works
   <> ~ Portfolio
   <> ~ There is a code on showcase.md
-  <> ~ .env variables for the pages who needed it
-  <> ~ Paginate?? Or lazy load them?
-  <> ~ Paginate?? Or 10 or showAll?
-  <> ~ Fix the error on Store and provide the env variables on netlify
+  <> ~ Paginate?? Or lazy load them?? Or 10 or showAll?
+              ~ Bad idea, pagination is better in every way
+  
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
@@ -51,9 +52,9 @@ BUG:
             ~ Lacking /
   <Done!> ~ HTML Content still undesigned
             ~ Everything looks good to me
-  <> ~ Paginate integration with Algolia Search
-              ~ Separate Search page, related with lazy load.
-  <> ~ Keys are visible - search.js, gatsby-config.js, store/index.js
+  <Done!> ~ Keys are visible - search.js, gatsby-config.js, store/index.js
+  <Done!> ~ Paginate integration with Algolia Search
+              ~ Used HitsPerPage
   <> ~ Color of HitsPerPage not designed
 
 IDEA

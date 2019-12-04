@@ -9,7 +9,7 @@ import style from '../../styles/post.module.css'
 
 class Store extends React.Component {
   componentDidMount() {
-    this.stripe = window.Stripe('pk_test_C7PAGShUPIYrMivdZxZLrAld00WrNqstWH')
+    this.stripe = window.Stripe(process.env.STRIPE_RESTRICTED_KEY)
   }
   
   handleSubmit(sku) {
@@ -23,8 +23,8 @@ class Store extends React.Component {
           // a successful payment.
           // Instead use one of the strategies described in
           // https://stripe.com/docs/payments/checkout/fulfillment
-          successUrl: `https://4c10579fc3bd4cc3b5bb0cbca1133e1a.vfs.cloud9.ap-southeast-1.amazonaws.com/store/success`,
-          cancelUrl: `https://4c10579fc3bd4cc3b5bb0cbca1133e1a.vfs.cloud9.ap-southeast-1.amazonaws.com/store/canceled`,
+          successUrl: `${process.env.WEBSITE_URL}/store/success`,
+          cancelUrl: `${process.env.WEBSITE_URL}/store/canceled`,
         })
         .then(function (result) {
           if (result.error) {

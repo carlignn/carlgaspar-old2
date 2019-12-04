@@ -167,8 +167,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-hello-friend`,
-        short_name: `hello-friend`,
+        name: `gatsby-starter-carl-gaspar`,
+        short_name: `carl-gaspar`,
         start_url: `/`,
         background_color: `#292a2d`,
         theme_color: `#292a2d`,
