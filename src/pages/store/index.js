@@ -9,8 +9,7 @@ import Layout from '../../components/layout'
 import style from '../../styles/post.module.css'
 
 class Store extends React.Component {
-  constructor(props) {
-    super(props)
+  componentDidMount() {
     this.stripe = window.Stripe(process.env.STRIPE_RESTRICTED_KEY)
   }
   
