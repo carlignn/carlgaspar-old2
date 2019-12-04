@@ -9,7 +9,7 @@ import Layout from '../../components/layout'
 import style from '../../styles/post.module.css'
 
 class Store extends React.Component {
-  componentDidMount() {
+  componentDidMount() { // Constructor getting error on window.
     this.stripe = window.Stripe(process.env.STRIPE_RESTRICTED_KEY)
   }
   
