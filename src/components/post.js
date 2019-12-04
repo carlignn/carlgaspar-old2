@@ -22,9 +22,9 @@ const Post = ({
   nextPost,
 }) => {
   
-  const previousPath = previousPost && previousPost.slug
+  const previousPath = previousPost && `/${previousPost.slug}`
   const previousLabel = previousPost && previousPost.title
-  const nextPath = nextPost && nextPost.slug
+  const nextPath = nextPost && `/${nextPost.slug}`
   const nextLabel = nextPost && nextPost.title
   
   return (
@@ -87,7 +87,7 @@ Post.propTypes = {
   slug: PropTypes.string,
   image: PropTypes.object,
   date: PropTypes.string,
-  content: PropTypes.string,
+  content: PropTypes.object,
   tags: PropTypes.arrayOf(PropTypes.string),
   previousPost: PropTypes.object,
   nextPost: PropTypes.object,

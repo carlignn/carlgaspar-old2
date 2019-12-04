@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 import { StaticQuery, graphql } from 'gatsby'
 
 import SEO from '../../components/seo'
@@ -8,7 +9,8 @@ import Layout from '../../components/layout'
 import style from '../../styles/post.module.css'
 
 class Store extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     this.stripe = window.Stripe(process.env.STRIPE_RESTRICTED_KEY)
   }
   
@@ -39,17 +41,24 @@ class Store extends React.Component {
   }
   
   render () {
-    const { id, currency, price, name } = this.props
+    const { id, currency, price, name, image } = this.props
     
     const priceFloat = (price/100).toFixed(2)
     const formattedPrice = Intl.NumberFormat('en-US', { style: 'currency', currency }).format(priceFloat)
   
     return (
       <div className={style.post}>
+        {image && (
+          <Img
+            fixed={image}
+            className={style.image}
+          />
+        )}
+          
         <div className={style.postContent}>
           <h1 className={style.title}>{name}</h1>
           <div className={style.meta}>
-            {formattedPrice}
+             Store — {formattedPrice}
           </div>
           
           <form onSubmit={this.handleSubmit(id)}>
@@ -66,14 +75,22 @@ export default () => (
   <StaticQuery
     query = {graphql`
       {
-        allStripeSku {
+        allStripeSku (sort: {fields: updated, order: DESC}) {
           edges {
             node {
               id
-              currency
-              price
               attributes {
                 name
+              }
+              currency
+              price
+              updated
+              localFiles {
+                childImageSharp {
+                  fixed(width: 125, height: 125) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
               }
             }
           }
@@ -92,6 +109,7 @@ export default () => (
             currency={sku.currency}
             price={sku.price}
             name={sku.attributes.name}
+            image={sku.localFiles[0].childImageSharp.fixed}
           />
         ))}
         </Layout>

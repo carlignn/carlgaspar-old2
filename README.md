@@ -39,6 +39,9 @@ TODO:
   <> ~ There is a code on showcase.md
   <> ~ Paginate?? Or lazy load them?? Or 10 or showAll?
               ~ Bad idea, pagination is better in every way
+  <> ~ Blog + Portfolio + Ads + News + Store on homepage
+  <> ~ Webhook
+  <> ~ Put no results when no results on search
   
 
 BUG:
@@ -49,16 +52,19 @@ BUG:
               ~ Stay as it is. Will create an issue on github
   <Done!> ~ Blog - All Blog, should be All Blogs, Ads, etc.
   <Done!> ~ External links error
-            ~ Lacking /
+            ~ Lacking / in front
   <Done!> ~ HTML Content still undesigned
             ~ Everything looks good to me
   <Done!> ~ Keys are visible - search.js, gatsby-config.js, store/index.js
   <Done!> ~ Paginate integration with Algolia Search
               ~ Used HitsPerPage
   <> ~ Color of HitsPerPage not designed
+  <> ~ Image and pagination on Store
+  <> ~ Netlify error
 
 IDEA
   <> ~ Try to view all instead of newer post and older post (in navigation)
+  <> ~ Number of posts per tag
 
 LAST THING I DID OR GOING TODO
   <> ~ Store Design, Search Design

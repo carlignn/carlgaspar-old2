@@ -50,7 +50,7 @@ export const pageQuery = graphql`
       category
       published(formatString: "MMMM DD, YYYY")
       image {
-        fluid(maxWidth: 1800) {
+        fluid(maxWidth: 1200) {
           ...GatsbyContentfulFluid
         }
       }

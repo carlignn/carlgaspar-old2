@@ -47,7 +47,7 @@ module.exports = {
     defaultTheme: 'dark',
     postsPerFirstPage: 10,
     postsPerPage: 15,
-    showMenuItems: 2,
+    showMenuItems: 3,
     menuMoreText: 'More',
     mainMenu: [
       {
@@ -59,33 +59,25 @@ module.exports = {
         path: '/portfolio',
       },
       {
+        title: 'Search',
+        path: '/search',
+      },
+      {
         title: 'Tags',
         path: '/tags',
       },
       {
-        title: 'Search [Beta]',
-        path: '/search',
-      },
-      {
-        title: 'Store [Beta]',
+        title: 'Store',
         path: '/store',
+      },
+      /*{
+        title: 'News',
+        path: '/news',
       },
       {
         title: 'Advertisement',
         path: '/advertisement',
-      },
-      {
-        title: 'Article',
-        path: '/article',
-      },
-      {
-        title: 'Opinion',
-        path: '/opinion',
-      },
-      {
-        title: 'News',
-        path: '/news',
-      },
+      },*/
     ],
   },
   plugins: [
