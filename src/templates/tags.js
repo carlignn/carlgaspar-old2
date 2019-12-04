@@ -25,7 +25,7 @@ const Tags = ({ data }) => {
           } = tag
 
           return (
-            <div>
+            <div key={fieldValue}>
               {fieldValue}
             </div>
           )
