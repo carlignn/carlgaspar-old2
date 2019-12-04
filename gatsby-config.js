@@ -4,11 +4,34 @@ const postCSSUrl = require('postcss-url')
 const postCSSImports = require('postcss-import')
 const cssnano = require('cssnano')
 const postCSSMixins = require('postcss-mixins')
-const dotenv = require("dotenv")
 
-if (process.env.NODE_ENV !== "production") {
-  dotenv.config()
-}
+// .env.*
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const postQuery = `
+  {
+    allContentfulPost {
+      edges {
+        node {
+          title
+          subtitle
+          category
+          slug
+          published(formatString: "MMMM DD, YYYY")
+        }
+      }
+    }
+  }
+`
+
+const queries = [
+  {
+    query: postQuery,
+    transformer: ({ data }) => data.allContentfulPost.edges
+  }
+]
 
 module.exports = {
   siteMetadata: {
@@ -38,6 +61,14 @@ module.exports = {
       {
         title: 'Tags',
         path: '/tags',
+      },
+      {
+        title: 'Search [Beta]',
+        path: '/search',
+      },
+      {
+        title: 'Store [Beta]',
+        path: '/store',
       },
       {
         title: 'Advertisement',
@@ -150,6 +181,25 @@ module.exports = {
       options: {
         spaceId: `l0jdzkx18jtc`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      }
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries,
+        chunkSize: 1000,
+      },
+    },
+    `gatsby-plugin-stripe`,
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Sku'],
+        secretKey: process.env.STRIPE_RESTRICTED_KEY,
+        downloadFiles: true,
       }
     },
   ],

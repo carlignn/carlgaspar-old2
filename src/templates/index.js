@@ -46,7 +46,6 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath, category }
               slug={slug}
               image={image}
               tags={tags}
-              author={title}
             />
           )
         })}

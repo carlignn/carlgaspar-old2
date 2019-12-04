@@ -47,7 +47,6 @@ const Tag = ({
               date={published}
               image={image}
               tags={tags}
-              author={title}
             />
           )
         })}

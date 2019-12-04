@@ -17,20 +17,28 @@ TODO:
               November 25, 2019 — 3 minute read (Doesn't look good)
               ~ Added Category column
   <Done!> ~ List of all Tags
-  <> ~ /tags Design
-              - tagCloud? or what?
-  <WIP!> ~ Header
-  <> ~ There is a code on showcase.md
-  <> ~ Check how SEO works
-  <> ~ Portfolio
-  <WIP> ~ Create menu for Advertisement, Blog
+  <Done!> ~ Create menu for Advertisement, Blog
               Create URL for Main Menu /, Blog /blog, Advertisement /advertisement
               ~ Menus created
   <Done!> ~ How do I create the portfolio page in my old Blog, so i know how would i meake here in new
               ~ Created by adding it on /pages
+  <WIP!> ~ Header
+  <> ~ /tags Design
+              - tagCloud? or what?
+  <WIP> ~ Algolia design of results is an eye sore
+              - Results are placed on UL
+              ~ Highlight color is already fine
+  <WIP!> ~ Store?
+              - Design
+              - Error when cannot connect to the server
+              - 1:04:29
+  <> ~ Check how SEO works
+  <> ~ Portfolio
+  <> ~ There is a code on showcase.md
   <> ~ .env variables for the pages who needed it
-  <> ~ Agolia?
-  <> ~ Store?
+  <> ~ Paginate?? Or lazy load them?
+  <> ~ Paginate?? Or 10 or showAll?
+  <> ~ Fix the error on Store and provide the env variables on netlify
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
@@ -41,6 +49,18 @@ BUG:
   <Done!> ~ Blog - All Blog, should be All Blogs, Ads, etc.
   <Done!> ~ External links error
             ~ Lacking /
+  <Done!> ~ HTML Content still undesigned
+            ~ Everything looks good to me
+  <> ~ Paginate integration with Algolia Search
+              ~ Separate Search page, related with lazy load.
+  <> ~ Keys are visible - search.js, gatsby-config.js, store/index.js
+  <> ~ Color of HitsPerPage not designed
+
+IDEA
+  <> ~ Try to view all instead of newer post and older post (in navigation)
+
+LAST THING I DID OR GOING TODO
+  <> ~ Store Design, Search Design
 
  # Hello Friend
 

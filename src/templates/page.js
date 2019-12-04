@@ -24,7 +24,6 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         image={image}
         content={content}
         tags={tags}
-        author={title}
         previousPost={previous}
         nextPost={next}
       />

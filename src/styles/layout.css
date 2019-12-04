@@ -331,3 +331,58 @@ footer {
     }
   }
 }
+
+/* Additionals */
+
+/* Algolia Searchbox */
+.ais-SearchBox-submit, .ais-SearchBox-reset {
+  display: none;
+}
+
+.ais-SearchBox-input {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  color: var(--light-color);
+  background: var(--light-background-secondary);
+
+  .dark-theme & {
+    color: var(--dark-color);
+    background: var(--dark-background-secondary);
+  }
+}
+
+.ais-HitsPerPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1024px;
+  max-width: 100%;
+  margin: 50px 0 40px;
+}
+
+.ais-HitsPerPage-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-color);
+  background: var(--light-background-secondary);
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  max-width: 40%;
+  padding: 8px 16px;
+  cursor: pointer;
+  appearance: none;
+
+  :global .dark-theme :local & {
+    color: var(--dark-color);
+    background: var(--dark-background-secondary);
+  }
+}
+
+select {
+  font-family: unset;
+}

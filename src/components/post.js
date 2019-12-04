@@ -18,7 +18,6 @@ const Post = ({
   date,
   content,
   tags,
-  author,
   previousPost,
   nextPost,
 }) => {
@@ -35,7 +34,6 @@ const Post = ({
           {subtitle ? <Link to={`/${slug}`}>{title}</Link> : title}
         </h1>
         <div className={style.meta}>
-          {/*{date} {author && <>— Written by {author}</>}*/}
           {category + " — " + date}
           {tags ? (
             <div className={style.tags}>
@@ -84,12 +82,12 @@ const Post = ({
 
 Post.propTypes = {
   title: PropTypes.string,
-  date: PropTypes.string,
+  subtitle: PropTypes.string,
+  category: PropTypes.string,
   slug: PropTypes.string,
   image: PropTypes.object,
-  author: PropTypes.string,
-  subtitle: PropTypes.string,
-  html: PropTypes.string,
+  date: PropTypes.string,
+  content: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   previousPost: PropTypes.object,
   nextPost: PropTypes.object,
