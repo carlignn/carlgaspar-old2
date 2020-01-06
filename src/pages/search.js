@@ -4,7 +4,7 @@ import {
   InstantSearch,
   SearchBox,
   Hits,
-  HitsPerPage
+  HitsPerPage,connectStateResults
 } from "react-instantsearch-dom"
 
 import SEO from "../components/seo"
@@ -16,6 +16,17 @@ const searchClient = algoliasearch(
   process.env.ALGOLIA_API_KEY
 )
 
+const Result = connectStateResults(({ searchState, searchResults, children }) =>
+  searchResults && searchResults.nbHits !== 0
+    ? children
+    : <div>
+       {searchState.query
+          ? "No results have been found for \"" + searchState.query + "\""
+          : "Wow, such empty"
+        }.
+      </div>
+)
+
 const Search = () => {
   return (
     <>
@@ -25,7 +36,9 @@ const Search = () => {
           <div className="infoBanner">
             <SearchBox translations={{ placeholder: "Search here..." }} />
           </div>
-          <Hits hitComponent={SearchPost} />
+          <Result>
+            <Hits hitComponent={SearchPost} />
+          </Result>
           <HitsPerPage
             defaultRefinement={5}
             items={[

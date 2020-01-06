@@ -1,8 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
 import { Highlight } from "react-instantsearch-dom"
 
 import style from "../styles/post.module.css"

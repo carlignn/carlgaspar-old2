@@ -346,7 +346,8 @@ footer {
   border: none;
   color: var(--light-color);
   background: var(--light-background-secondary);
-
+  outline: none;
+  
   .dark-theme & {
     color: var(--dark-color);
     background: var(--dark-background-secondary);

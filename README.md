@@ -32,6 +32,7 @@ TODO:
               - Design
               - Error when cannot connect to the server
               - 1:04:29
+  <Done!> ~ Put no results when no results on search
   <> ~ /tags Design
               - tagCloud? or what?
   <> ~ Check how SEO works
@@ -40,8 +41,8 @@ TODO:
   <> ~ Paginate?? Or lazy load them?? Or 10 or showAll?
               ~ Bad idea, pagination is better in every way
   <> ~ Blog + Portfolio + Ads + News + Store on homepage
-  <> ~ Webhook
-  <> ~ Put no results when no results on search
+  <> ~ Webhooks
+  
   
 
 BUG:
@@ -61,7 +62,7 @@ BUG:
   <Done!> ~ Color of HitsPerPage not designed
               ~ Imitated the dark theme on other css code
   <Done!> ~ Design of the Search
-              ~ Just modified the css code (layout.css - copied frome post.module.css)
+              ~ Just modified the css code (layout.css - copied from post.module.css)
   <> ~ Image and pagination on Store
   <> ~ .env not working on store/index.js
 
