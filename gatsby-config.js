@@ -20,6 +20,7 @@ const postQuery = `
           category
           slug
           published(formatString: "MMMM DD, YYYY")
+          tags
         }
       }
     }
@@ -172,7 +173,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `l0jdzkx18jtc`,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        accessToken: `1Rx2W23IYyc_B73M44PYeW66fQWHhuFc5Y-rI3SCtWU`,
       }
     },
     {
@@ -190,7 +191,7 @@ module.exports = {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ['Sku'],
-        secretKey: process.env.STRIPE_RESTRICTED_KEY,
+        secretKey: `rk_test_CLmfEkM0AI022ZONCBKEujV2002fISiJXh`,
         downloadFiles: true,
       }
     },

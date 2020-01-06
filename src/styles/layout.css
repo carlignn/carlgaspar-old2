@@ -369,6 +369,7 @@ footer {
   justify-content: center;
   color: var(--light-color);
   background: var(--light-background-secondary);
+  border-color: var(--light-background-secondary);
   font-size: 1rem;
   font-weight: bold;
   border-radius: 8px;
@@ -376,13 +377,26 @@ footer {
   padding: 8px 16px;
   cursor: pointer;
   appearance: none;
-
-  :global .dark-theme :local & {
+  font-family: unset;
+  
+  .dark-theme & {
     color: var(--dark-color);
     background: var(--dark-background-secondary);
+    border-color: var(--dark-background-secondary);
   }
 }
 
-select {
-  font-family: unset;
+.ais-Hits-list {
+  list-style-type: none;
+  margin-left: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.ais-Hits-item > div {
+  border-bottom: 1px solid var(--light-border-color);
+
+   .dark-theme & {
+    border-color: var(--dark-border-color);
+  }
 }

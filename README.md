@@ -58,12 +58,16 @@ BUG:
   <Done!> ~ Keys are visible - search.js, gatsby-config.js, store/index.js
   <Done!> ~ Paginate integration with Algolia Search
               ~ Used HitsPerPage
-  <> ~ Color of HitsPerPage not designed
+  <Done!> ~ Color of HitsPerPage not designed
+              ~ Imitated the dark theme on other css code
+  <Done!> ~ Design of the Search
+              ~ Just modified the css code (layout.css - copied frome post.module.css)
   <> ~ Image and pagination on Store
-  <> ~ Netlify error
+  <> ~ .env not working on store/index.js
 
 IDEA
-  <> ~ Try to view all instead of newer post and older post (in navigation)
+  <Done!> ~ Try to view all instead of newer post and older post (in navigation)
+              ~ Not a good idea
   <> ~ Number of posts per tag
 
 LAST THING I DID OR GOING TODO

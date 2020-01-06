@@ -8,7 +8,7 @@ import { Highlight } from "react-instantsearch-dom"
 import style from "../styles/post.module.css"
 
 const SearchPost = ({ hit }) => {
-  const { slug } = hit.node
+  const { slug, tags } = hit.node
 
   return (
     <div className={style.post}>
@@ -22,6 +22,15 @@ const SearchPost = ({ hit }) => {
           <Highlight attribute="node.category" hit={hit} tagName="mark" />
           {" — "}
           <Highlight attribute="node.published" hit={hit} tagName="mark" />
+          {tags ? (
+            <div className={style.tags}>
+              {tags.map(tag => (
+                <Link to={`/tag/${tag}/`} key={tag}>
+                  <span className={style.tag}>#{tag}</span>
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
         
         <p>
