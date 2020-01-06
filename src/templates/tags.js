@@ -17,7 +17,7 @@ const Tags = ({ data }) => {
     <>
       <SEO />
       <Layout>
-        <div className="infoBanner">All Tags</div>
+        <div className="infoBanner">Tags</div>
 
         {tags.map(tag => {
           const {

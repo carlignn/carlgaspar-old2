@@ -4,13 +4,10 @@
   text-align: left;
   padding: 20px;
   margin: 0 auto 20px;
+  border-bottom: 1px solid var(--light-border-color);
 
-  &:not(:last-of-type) {
-    border-bottom: 1px solid var(--light-border-color);
-
-    :global .dark-theme :local & {
-      border-color: var(--dark-border-color);
-    }
+  :global .dark-theme :local & {
+    border-color: var(--dark-border-color);
   }
 
   @media (--tablet) {

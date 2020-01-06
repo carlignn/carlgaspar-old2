@@ -19,7 +19,7 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath, category }
         {
           category && (
             <div className="infoBanner">
-              All {category[category.length - 1] !== "s" ? category + "s" : category}
+              {category[category.length - 1] !== "s" ? category + "s" : category}
             </div>
           )
         }

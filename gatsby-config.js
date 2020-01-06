@@ -173,7 +173,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `l0jdzkx18jtc`,
-        accessToken: `1Rx2W23IYyc_B73M44PYeW66fQWHhuFc5Y-rI3SCtWU`,
+        accessToken: `1Rx2W23IYyc_B73M44PYeW66fQWHhuFc5Y-rI3SCtWU`, //process.env.CONTENTFUL_ACCESS_TOKEN,
       }
     },
     {
@@ -191,7 +191,7 @@ module.exports = {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ['Sku'],
-        secretKey: `rk_test_CLmfEkM0AI022ZONCBKEujV2002fISiJXh`,
+        secretKey: `rk_test_CLmfEkM0AI022ZONCBKEujV2002fISiJXh`, //process.env.STRIPE_RESTRICTED_KEY,
         downloadFiles: true,
       }
     },

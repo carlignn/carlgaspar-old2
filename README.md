@@ -24,15 +24,20 @@ TODO:
               ~ Created by adding it on /pages
   <Done!> ~ .env variables for the pages who needed it
   <Done!> ~ Fix the error on Store and provide the env variables on netlify
-  <WIP!> ~ Header
-  <WIP> ~ Algolia design of results is an eye sore
+  <Done!> ~ Put no results when no results on search
+  <Done!> ~ Algolia design of results is an eye sore
               - Results are placed on UL
               ~ Highlight color is already fine
+              ~ Customized the CSS to blend with the original theme
+              ~ Added tags
   <WIP!> ~ Store?
               - Design
               - Error when cannot connect to the server
               - 1:04:29
-  <Done!> ~ Put no results when no results on search
+  <WIP!> ~ Header
+  <WIP!> ~ Webhooks
+              ~ Automatic on Algolia
+              ~ Done with Contentful
   <> ~ /tags Design
               - tagCloud? or what?
   <> ~ Check how SEO works
@@ -41,9 +46,7 @@ TODO:
   <> ~ Paginate?? Or lazy load them?? Or 10 or showAll?
               ~ Bad idea, pagination is better in every way
   <> ~ Blog + Portfolio + Ads + News + Store on homepage
-  <> ~ Webhooks
-  
-  
+  <> ~ There is a youtube video on the demo
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
@@ -72,7 +75,7 @@ IDEA
   <> ~ Number of posts per tag
 
 LAST THING I DID OR GOING TODO
-  <> ~ Store Design, Search Design
+  <> ~ Store Design
 
  # Hello Friend
 

@@ -17,14 +17,16 @@ const searchClient = algoliasearch(
 )
 
 const Result = connectStateResults(({ searchState, searchResults, children }) =>
-  searchResults && searchResults.nbHits !== 0
-    ? children
-    : <div>
-       {searchState.query
-          ? "No results have been found for \"" + searchState.query + "\""
-          : "Wow, such empty"
-        }.
-      </div>
+  searchState && searchState.query
+  ? searchResults && searchResults.nbHits !== 0
+      ? children
+      : <div>
+         {searchState.query
+            ? "No results have been found for \"" + searchState.query + "\""
+            : "Wow, such empty."
+          }.
+        </div>
+  : "Wow, such empty."
 )
 
 const Search = () => {

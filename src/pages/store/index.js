@@ -100,7 +100,7 @@ export default () => (
       <>
         <SEO />
         <Layout>
-        <div className="infoBanner">Products List</div>
+        <div className="infoBanner">Store</div>
         {data.allStripeSku.edges.map(({ node: sku }) => (
           <Store
             key={sku.id}
