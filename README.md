@@ -30,6 +30,8 @@ TODO:
               ~ Highlight color is already fine
               ~ Customized the CSS to blend with the original theme
               ~ Added tags
+  <Done!> ~ Paginate?? Or lazy load them?? Or 10 or showAll?
+              ~ Bad idea, pagination is better in every way
   <WIP!> ~ Store?
               - Design
               - Error when cannot connect to the server
@@ -38,13 +40,15 @@ TODO:
   <WIP!> ~ Webhooks
               ~ Automatic on Algolia
               ~ Done with Contentful
+  <WIP!> ~ Portfolio
+            ~ Added
+            ~ Needs context
   <> ~ /tags Design
               - tagCloud? or what?
   <> ~ Check how SEO works
-  <> ~ Portfolio
+  
   <> ~ There is a code on showcase.md
-  <> ~ Paginate?? Or lazy load them?? Or 10 or showAll?
-              ~ Bad idea, pagination is better in every way
+  
   <> ~ Blog + Portfolio + Ads + News + Store on homepage
   <> ~ There is a youtube video on the demo
 

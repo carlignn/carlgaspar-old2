@@ -102,17 +102,18 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
     
     // Create each category index with pagination
     markdownCategory.forEach(category => {
-      paginate({
-        createPage,
-        items: markdownCategory,
-        component: indexTemplate,
-        itemsPerFirstPage: siteMetadata.postsPerFirstPage,
-        itemsPerPage: siteMetadata.postsPerPage,
-        pathPrefix: `/${category.fieldValue.toLowerCase()}`,
-        context: {
-          category: category.fieldValue
-        }
-      })
+      category.fieldValue !== "Portfolio" &&
+        paginate({
+          createPage,
+          items: markdownCategory,
+          component: indexTemplate,
+          itemsPerFirstPage: siteMetadata.postsPerFirstPage,
+          itemsPerPage: siteMetadata.postsPerPage,
+          pathPrefix: `/${category.fieldValue.toLowerCase()}`,
+          context: {
+            category: category.fieldValue
+          }
+        })
     })
   })
 }
