@@ -14,7 +14,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={category === "Portfolio" ? "Portfolio" : title} description={subtitle} />
+      <SEO title={category === "Portfolio" || category === "About" ? category : title} description={subtitle} />
       <Post
         key={id}
         title={title}

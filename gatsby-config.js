@@ -71,6 +71,10 @@ module.exports = {
         title: 'Store',
         path: '/store',
       },
+      {
+        title: 'About',
+        path: '/about',
+      },
       /*{
         title: 'News',
         path: '/news',

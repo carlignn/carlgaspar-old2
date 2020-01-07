@@ -102,7 +102,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
     
     // Create each category index with pagination
     markdownCategory.forEach(category => {
-      category.fieldValue !== "Portfolio" &&
+      category.fieldValue !== "Portfolio" && category.fieldValue !== "About" &&
         paginate({
           createPage,
           items: markdownCategory,

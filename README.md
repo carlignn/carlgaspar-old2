@@ -69,6 +69,7 @@ BUG:
   <Done!> ~ Design of the Search
               ~ Just modified the css code (layout.css - copied from post.module.css)
   <Done!> ~ .env not working on store/index.js
+  <> ~ Attach resume on portfolio
   <> ~ Image and pagination on Store
 
 IDEA
