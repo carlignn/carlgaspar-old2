@@ -36,6 +36,7 @@ TODO:
               - Design
               - Error when cannot connect to the server
               - 1:04:29
+  <Cancelled!> ~ Blog + Portfolio + Ads + News + Store on homepage
   <WIP!> ~ Header
   <WIP!> ~ Webhooks
               ~ Automatic on Algolia
@@ -46,10 +47,7 @@ TODO:
   <> ~ /tags Design
               - tagCloud? or what?
   <> ~ Check how SEO works
-  
   <> ~ There is a code on showcase.md
-  
-  <> ~ Blog + Portfolio + Ads + News + Store on homepage
   <> ~ There is a youtube video on the demo
 
 BUG:
@@ -70,8 +68,8 @@ BUG:
               ~ Imitated the dark theme on other css code
   <Done!> ~ Design of the Search
               ~ Just modified the css code (layout.css - copied from post.module.css)
+  <Done!> ~ .env not working on store/index.js
   <> ~ Image and pagination on Store
-  <> ~ .env not working on store/index.js
 
 IDEA
   <Done!> ~ Try to view all instead of newer post and older post (in navigation)

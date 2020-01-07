@@ -15,7 +15,7 @@ const Tags = ({ data }) => {
   
   return (
     <>
-      <SEO />
+      <SEO title={`Tags`} description={`Tags`} />
       <Layout>
         <div className="infoBanner">Tags</div>
 
