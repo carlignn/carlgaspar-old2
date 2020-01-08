@@ -40,10 +40,14 @@ TODO:
   <WIP!> ~ Header
   <WIP!> ~ Webhooks
               ~ Automatic on Algolia
-              ~ Done with Contentful
+              ~ Done with Contentful (Cancelled due to too much testing)
+              ~ Stripe NOT YET
   <WIP!> ~ Portfolio
             ~ Added
             ~ Needs context
+  <WIP!> ~ About
+            ~ 90%
+  <> ~ Portfolio and About
   <> ~ /tags Design
               - tagCloud? or what?
   <> ~ Check how SEO works
@@ -69,8 +73,10 @@ BUG:
   <Done!> ~ Design of the Search
               ~ Just modified the css code (layout.css - copied from post.module.css)
   <Done!> ~ .env not working on store/index.js
-  <> ~ Attach resume on portfolio
+  <> ~ Store not working because of Secret keys
   <> ~ Image and pagination on Store
+  <> ~ Attach resume on portfolio
+  <> ~ Can't link assets to Content (Projects in Portfolio)
 
 IDEA
   <Done!> ~ Try to view all instead of newer post and older post (in navigation)
@@ -78,6 +84,7 @@ IDEA
   <> ~ Number of posts per tag
 
 LAST THING I DID OR GOING TODO
+  <> ~ Portfolio and About
   <> ~ Store Design
 
  # Hello Friend

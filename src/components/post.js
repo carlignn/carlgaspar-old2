@@ -67,12 +67,15 @@ const Post = ({
                 __html: documentToHtmlString(content.json)
               }}
             />
-            <Navigation
-              previousPath={previousPath}
-              previousLabel={previousLabel}
-              nextPath={nextPath}
-              nextLabel={nextLabel}
-            />
+            {/* Dont create a navigation if the page is Portfolio or About */}
+            {category !== "Portfolio" && category !== "About" &&
+              <Navigation
+                previousPath={previousPath}
+                previousLabel={previousLabel}
+                nextPath={nextPath}
+                nextLabel={nextLabel}
+              />
+            }
           </>
         )}
       </div>

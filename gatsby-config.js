@@ -68,7 +68,7 @@ module.exports = {
         path: '/tags',
       },
       {
-        title: 'Store',
+        title: 'Store [Beta]',
         path: '/store',
       },
       {

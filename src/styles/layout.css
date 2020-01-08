@@ -387,6 +387,15 @@ footer {
   }
 }
 
+.ais-Hits {
+  width: 100%;
+  max-width: 800px;
+
+  @media (--tablet) {
+    max-width: 660px;
+  }
+}
+
 .ais-Hits-list {
   list-style-type: none;
   margin-left: 0;
