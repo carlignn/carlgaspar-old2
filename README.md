@@ -56,6 +56,8 @@ TODO:
   <> ~ There is a code on showcase.md
             ~ There is a youtube video on the demo
             ~ It uses PrismJS to be shown on web
+  <> ~ Contact form
+            ~ Try to see modal packagess
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
