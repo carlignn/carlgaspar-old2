@@ -32,7 +32,7 @@ const Result = connectStateResults(({ searchState, searchResults, children }) =>
 const Search = () => {
   return (
     <>
-      <SEO title={`Search`} description={`Search`} />
+      <SEO title={`Search`} />
       <Layout>
         <InstantSearch searchClient={searchClient} indexName="Post">
           <div className="infoBanner">

@@ -37,7 +37,7 @@ const queries = [
 module.exports = {
   siteMetadata: {
     title: `Carl Gaspar`,
-    description: `A simple starter for Gatsby. That's it.`,
+    description: `A simple blogsite made in Gatsby by Carl Gaspar.`,
     copyrights: '',
     author: `@carlracz`,
     logo: {
@@ -45,10 +45,10 @@ module.exports = {
       alt: '',
     },
     logoText: 'carl gaspar',
-    defaultTheme: 'dark',
+    defaultTheme: 'light',
     postsPerFirstPage: 10,
     postsPerPage: 15,
-    showMenuItems: 3,
+    showMenuItems: 4,
     menuMoreText: 'More',
     mainMenu: [
       {
@@ -58,6 +58,10 @@ module.exports = {
       {
         title: 'Portfolio',
         path: '/portfolio',
+      },
+      {
+        title: 'Contact',
+        path: '/contact',
       },
       {
         title: 'Search',

@@ -22,7 +22,8 @@ const SEO = ({ description, lang, meta, keywords, title }) => {
   } = data.site.siteMetadata
   const metaTitle = title || siteTitle
   const metaDescription = description || siteDescription
-
+  // When no description is provided, it will use the original description in the config
+  
   return (
     <Helmet
       htmlAttributes={{

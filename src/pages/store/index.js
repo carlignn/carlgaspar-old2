@@ -98,7 +98,7 @@ export default () => (
     `}
     render = {data => (
       <>
-        <SEO title={`Store`} description={`Store`} />
+        <SEO title={`Store`} description={`Carl Gaspar's Merch Store. Powered by Stripe.`} />
         <Layout>
         <div className="infoBanner">Store</div>
         {data.allStripeSku.edges.map(({ node: sku }) => (

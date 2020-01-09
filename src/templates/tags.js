@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
+
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Post from '../components/post'
 import Navigation from '../components/navigation'
 
-import '../styles/layout.css'
+import style from '../styles/post.module.css'
 
 const Tags = ({ data }) => {
   const {
@@ -15,19 +17,15 @@ const Tags = ({ data }) => {
   
   return (
     <>
-      <SEO title={`Tags`} description={`Tags`} />
+      <SEO title={`Tags`} />
       <Layout>
         <div className="infoBanner">Tags</div>
-
         {tags.map(tag => {
-          const {
-            fieldValue
-          } = tag
-
+          const { fieldValue } = tag
           return (
-            <div key={fieldValue}>
-              {fieldValue}
-            </div>
+            <Link to={`/tag/${fieldValue}/`} key={fieldValue}>
+              <span className={style.tag}>{fieldValue}</span>
+            </Link>
           )
         })}
       </Layout>

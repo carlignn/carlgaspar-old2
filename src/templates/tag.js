@@ -18,7 +18,7 @@ const Tag = ({
   
   return (
     <>
-      <SEO title={`Posts with ${tag} Tag`} description={tag} />
+      <SEO title={`Posts with ${tag} Tag`} />
       <Layout>
         <div className="infoBanner">
           Posts with tag: <span>#{tag}</span>

@@ -42,17 +42,20 @@ TODO:
               ~ Automatic on Algolia
               ~ Done with Contentful (Cancelled due to too much testing)
               ~ Stripe NOT YET
+  <Done!> ~ Check how SEO works
+              ~ Title and Description matters
+              ~ When no Description, apply the Description in the config file
   <WIP!> ~ Portfolio
             ~ Added
             ~ Needs context
   <WIP!> ~ About
             ~ 90%
-  <> ~ Portfolio and About
   <> ~ /tags Design
-              - tagCloud? or what?
-  <> ~ Check how SEO works
+            - tagCloud? or what?
+            ~ Cant't make the tagCloud to work
   <> ~ There is a code on showcase.md
-  <> ~ There is a youtube video on the demo
+            ~ There is a youtube video on the demo
+            ~ It uses PrismJS to be shown on web
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
@@ -73,10 +76,12 @@ BUG:
   <Done!> ~ Design of the Search
               ~ Just modified the css code (layout.css - copied from post.module.css)
   <Done!> ~ .env not working on store/index.js
+  <Done!> ~ Can't link assets to Content (Projects in Portfolio)
+          ~ Switched to URL and write /project-name
   <> ~ Store not working because of Secret keys
   <> ~ Image and pagination on Store
   <> ~ Attach resume on portfolio
-  <> ~ Can't link assets to Content (Projects in Portfolio)
+  
 
 IDEA
   <Done!> ~ Try to view all instead of newer post and older post (in navigation)

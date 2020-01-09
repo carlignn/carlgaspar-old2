@@ -14,7 +14,7 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath, category }
   
   return (
     <>
-      <SEO title={category} description={category} />
+      <SEO title={category} />
       <Layout>
         {
           category && (
