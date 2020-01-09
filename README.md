@@ -57,7 +57,7 @@ TODO:
             ~ There is a youtube video on the demo
             ~ It uses PrismJS to be shown on web
   <> ~ Contact form
-            ~ Try to see modal packagess
+            ~ Fix css naming
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
