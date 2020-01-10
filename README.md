@@ -58,6 +58,7 @@ TODO:
             ~ It uses PrismJS to be shown on web
   <> ~ Contact form
             ~ Fix css naming
+            ~ Cant see the recaptcha
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end

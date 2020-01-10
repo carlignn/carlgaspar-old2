@@ -11,7 +11,7 @@ const Contact = () => {
         <div className="infoBanner">{`Contact`}</div>
         <form
           className="contact-container"
-          name="contact"
+          name="Contact"
           method="POST"
           data-netlify-recaptcha="true"
           data-netlify="true"
@@ -25,7 +25,7 @@ const Contact = () => {
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
-              name="name"
+              name="Name"
             />
           </div>
           <div className="contact-container-email">
@@ -37,7 +37,7 @@ const Contact = () => {
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
-              name="email"
+              name="Email"
             />
           </div>
           <div className="contact-container-message">
@@ -48,12 +48,12 @@ const Contact = () => {
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
-              name="message"
+              name="Message"
               rows="10"
             ></textarea>
           </div>
-          <div data-netlify-recaptcha="true"></div>
           <div className="contact-submit-container">
+            <div data-netlify-recaptcha="true"></div>
             <button className="contact-submit" type="submit">
               Send
             </button>
