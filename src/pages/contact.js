@@ -13,10 +13,9 @@ const Contact = () => {
           className="contact-container"
           name="Contact"
           method="POST"
-          netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
           data-netlify="true"
         >
-          <input className="contact-honeypot" name="bot-field" />
           <div className="contact-container-name">
             <input
               className="contact-name"
@@ -54,6 +53,7 @@ const Contact = () => {
             ></textarea>
           </div>
           <div className="contact-submit-container">
+            <div data-netlify-recaptcha="true"></div>
             <button className="contact-submit" type="submit">
               Send
             </button>

@@ -59,6 +59,7 @@ TODO:
   <> ~ Contact form
             ~ Fix css naming
             ~ Cant see the recaptcha
+            ~ Not working
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end

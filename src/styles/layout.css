@@ -445,10 +445,6 @@ footer {
   }
 }
 
-.contact-honeypot {
-  visibility: hidden;
-}
-
 .contact-message {
   width: 100%;
   font-size: 1rem;
