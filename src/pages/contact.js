@@ -53,12 +53,10 @@ const Contact = () => {
             ></textarea>
           </div>
           <div className="contact-submit-container">
-            <div data-netlify-recaptcha="true"></div>
-            <div>
-              <button className="contact-submit" type="submit">
-                Send
-              </button>
-            </div>
+            <div class="g-recaptcha" data-sitekey={process.env.SITE_RECAPTCHA_KEY}></div>
+            <button className="contact-submit" type="submit">
+              Send
+            </button>
           </div>
         </form>
       </Layout>
