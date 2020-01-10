@@ -13,7 +13,6 @@ const Contact = () => {
           className="contact-container"
           name="Contact"
           method="POST"
-          data-netlify-recaptcha="true"
           data-netlify="true"
         >
           <div className="contact-container-name">
@@ -53,7 +52,6 @@ const Contact = () => {
             ></textarea>
           </div>
           <div className="contact-submit-container">
-            <div class="g-recaptcha" data-sitekey={process.env.SITE_RECAPTCHA_KEY}></div>
             <button className="contact-submit" type="submit">
               Send
             </button>
