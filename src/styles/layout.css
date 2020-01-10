@@ -413,7 +413,7 @@ footer {
 
 /* Contact */
 .contact-container {
-  width: calc(100% - 40px);
+  width: calc(100% - 60px);
 }
 
 .contact-container-name, .contact-container-email, .contact-container-message {
