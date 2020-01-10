@@ -82,7 +82,7 @@ BUG:
   <Done!> ~ Can't link assets to Content (Projects in Portfolio)
           ~ Switched to URL and write /project-name
   <> ~ Store not working because of Secret keys
-  <> ~ Image and pagination on Store
+              ~ Image and pagination on Store
   <> ~ Attach resume on portfolio
   
 
@@ -90,10 +90,7 @@ IDEA
   <Done!> ~ Try to view all instead of newer post and older post (in navigation)
               ~ Not a good idea
   <> ~ Number of posts per tag
-
-LAST THING I DID OR GOING TODO
-  <> ~ Portfolio and About
-  <> ~ Store Design
+  <> ~ Check if Store success and cancel link go with /success and /cancelled
 
  # Hello Friend
 

@@ -54,9 +54,11 @@ const Contact = () => {
           </div>
           <div className="contact-submit-container">
             <div data-netlify-recaptcha="true"></div>
-            <button className="contact-submit" type="submit">
-              Send
-            </button>
+            <div>
+              <button className="contact-submit" type="submit">
+                Send
+              </button>
+            </div>
           </div>
         </form>
       </Layout>
