@@ -32,41 +32,42 @@ TODO:
               ~ Added tags
   <Done!> ~ Paginate?? Or lazy load them?? Or 10 or showAll?
               ~ Bad idea, pagination is better in every way
+  <Cancelled!> ~ Blog + Portfolio + Ads + News + Store on homepage
+  <Done!> ~ Header
+  <Done!> ~ Check how SEO works
+              ~ Title and Description matters
+              ~ When no Description, apply the Description in the config file
+  <Done!> ~ /tags Design
+            - tagCloud? or what?
+            ~ Cant't make the tagCloud to work
+              ~ Has to have width and height
+            ~ Default tag design is better than tagCloud (no design is the best design)
   <WIP!> ~ Store?
               - Design
               - Error when cannot connect to the server
               - 1:04:29
-  <Cancelled!> ~ Blog + Portfolio + Ads + News + Store on homepage
-  <WIP!> ~ Header
   <WIP!> ~ Webhooks
               ~ Automatic on Algolia
               ~ Done with Contentful (Cancelled due to too much testing)
               ~ Stripe NOT YET
-  <Done!> ~ Check how SEO works
-              ~ Title and Description matters
-              ~ When no Description, apply the Description in the config file
+  
   <WIP!> ~ Portfolio
             ~ Added
             ~ Needs context
   <WIP!> ~ About
             ~ 90%
-  <> ~ /tags Design
-            - tagCloud? or what?
-            ~ Cant't make the tagCloud to work
   <> ~ There is a code on showcase.md
             ~ There is a youtube video on the demo
             ~ It uses PrismJS to be shown on web
   <> ~ Contact form
             ~ Fix css naming
             ~ Cant see the recaptcha
-            ~ Not working
+            ~ Not working, Added reCAPTCHA again
 
 BUG:
   <Done!> ~ Pagination on Tags not working. ~ Removed / on end
   <Done!> ~ Creating next page for tag when it is only sufficient for page 1 ~ Don't make pages 1
   <Done!> ~ Tags on Page is Camel Case, should be Pascal Case ~ Tags are as it is
-  <Skipped?> ~ Tags Pagination not working together - Because #Philippines has 4 pages, causing everyone to imitate, Same with Category
-              ~ Stay as it is. Will create an issue on github
   <Done!> ~ Blog - All Blog, should be All Blogs, Ads, etc.
   <Done!> ~ External links error
             ~ Lacking / in front
@@ -82,9 +83,14 @@ BUG:
   <Done!> ~ .env not working on store/index.js
   <Done!> ~ Can't link assets to Content (Projects in Portfolio)
           ~ Switched to URL and write /project-name
+  <Done!> ~ Attach resume on portfolio
+            ~ The link is suddenly not showing in the result
+            ~ Just put and link to Google Drive
+  <Skipped?> ~ Tags Pagination not working together - Because #Philippines has 4 pages, causing everyone to imitate, Same with Category
+              ~ Stay as it is. Will create an issue on github
   <> ~ Store not working because of Secret keys
               ~ Image and pagination on Store
-  <> ~ Attach resume on portfolio
+  
   
 
 IDEA

@@ -23,9 +23,11 @@ const Tags = ({ data }) => {
         {tags.map(tag => {
           const { fieldValue } = tag
           return (
-            <Link to={`/tag/${fieldValue}/`} key={fieldValue}>
-              <span className={style.tag}>{fieldValue}</span>
-            </Link>
+            <div>
+              <Link to={`/tag/${fieldValue}/`} key={fieldValue}>
+                <span className={style.tag}>{fieldValue}</span>
+              </Link>
+            </div>
           )
         })}
       </Layout>

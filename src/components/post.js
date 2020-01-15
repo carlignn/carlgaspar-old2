@@ -1,13 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import React from "react"
+import PropTypes from "prop-types"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
 
-import Navigation from './navigation'
-import { toKebabCase, toCamelCase } from '../helpers'
+import Navigation from "./navigation"
+import { toKebabCase, toCamelCase } from "../helpers"
 
-import style from '../styles/post.module.css'
+import style from "../styles/post.module.css"
 
 const Post = ({
   title,
@@ -19,14 +19,13 @@ const Post = ({
   content,
   tags,
   previousPost,
-  nextPost,
+  nextPost
 }) => {
-  
   const previousPath = previousPost && `/${previousPost.slug}`
   const previousLabel = previousPost && previousPost.title
   const nextPath = nextPost && `/${nextPost.slug}`
   const nextLabel = nextPost && nextPost.title
-  
+
   return (
     <div className={style.post}>
       <div className={style.postContent}>
@@ -34,7 +33,18 @@ const Post = ({
           {subtitle ? <Link to={`/${slug}`}>{title}</Link> : title}
         </h1>
         <div className={style.meta}>
-          {category + " — " + date}
+          {/* Don't put link to Portfolio and category */}
+          {category !== "Portfolio" && category !== "About" ? (
+            <Link
+              to={`/${category.toLowerCase()}/`}
+              style={{ textDecoration: "none" }}
+            >
+              {category}
+            </Link>
+          ) : (
+            category
+          )}
+          {" — " + date}
           {tags ? (
             <div className={style.tags}>
               {tags.map(tag => (
@@ -46,12 +56,7 @@ const Post = ({
           ) : null}
         </div>
 
-        {image && (
-          <Img
-            fluid={image.fluid}
-            className={style.image}
-          />
-        )}
+        {image && <Img fluid={image.fluid} className={style.image} />}
 
         {subtitle ? (
           <>
@@ -68,14 +73,14 @@ const Post = ({
               }}
             />
             {/* Dont create a navigation if the page is Portfolio or About */}
-            {category !== "Portfolio" && category !== "About" &&
+            {category !== "Portfolio" && category !== "About" && (
               <Navigation
                 previousPath={previousPath}
                 previousLabel={previousLabel}
                 nextPath={nextPath}
                 nextLabel={nextLabel}
               />
-            }
+            )}
           </>
         )}
       </div>
@@ -93,7 +98,7 @@ Post.propTypes = {
   content: PropTypes.object,
   tags: PropTypes.arrayOf(PropTypes.string),
   previousPost: PropTypes.object,
-  nextPost: PropTypes.object,
+  nextPost: PropTypes.object
 }
 
 export default Post
