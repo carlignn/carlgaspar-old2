@@ -23,28 +23,28 @@ const Footer = ({ copyrights }) => (
     ) : (
       <>
         <span>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://youtube.com/carlracz" target="_blank" rel="noopener noreferrer">
             <Icon style={{ margin: `10px 10px` }} size={24} d={youtubeIcon} isFooter={true} />
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://twitter.com/carlracz" target="_blank" rel="noopener noreferrer">
             <Icon style={{ margin: `10px 10px` }} size={24} d={twitterIcon} isFooter={true} />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/in/carlgaspar" target="_blank" rel="noopener noreferrer">
             <Icon style={{ margin: `10px 10px` }} size={24} d={linkedinIcon} isFooter={true} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://about.me/carlgaspar" target="_blank" rel="noopener noreferrer">
             <Icon style={{ margin: `10px 10px` }} size={24} d={avoutmeIcon} isFooter={true} />
           </a>
-          <a href="https://about.me" target="_blank" rel="noopener noreferrer">
+          <a href="https://reddit.com/u/carlracz" target="_blank" rel="noopener noreferrer">
             <Icon style={{ margin: `10px 10px` }} size={24} d={redditIcon} isFooter={true} />
           </a>
-          <a href="https://reddit.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://hackernews.com/carlracz" target="_blank" rel="noopener noreferrer">
             <Icon style={{ margin: `10px 10px` }} size={24} d={hackerNewsIcon} isFooter={true} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://instagram.com/carlracz" target="_blank" rel="noopener noreferrer">
             <Icon style={{ margin: `10px 10px` }} size={24} d={instagramIcon} isFooter={true} />
           </a>
-          <a href="https://hackernews.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://facebook.com/carlracz" target="_blank" rel="noopener noreferrer">
             <Icon style={{ margin: `10px 10px` }} size={24} d={facebookIcon} isFooter={true} />
           </a>
         </span>

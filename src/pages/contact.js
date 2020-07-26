@@ -59,6 +59,7 @@ const Contact = () => {
             </button>
           </div>
         </form>
+        <hr/>
       </Layout>
     </>
   )

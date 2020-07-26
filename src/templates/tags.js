@@ -30,6 +30,8 @@ const Tags = ({ data }) => {
             </div>
           )
         })}
+        <p></p>
+        <hr/>
       </Layout>
     </>
   )
