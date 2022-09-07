@@ -47,7 +47,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0",
-    "react-instantsearch": "^6.0.0",
+    "react-instantsearch": "^6.31.1",
     "react-instantsearch-dom": "^6.0.0"
   },
   "devDependencies": {
